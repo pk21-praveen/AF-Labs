@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 1</title>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript">
+
+        // Question 1
+        var func_1 = function () {
+            console.log("Hello World !!!");
+        }
+
+        function execute(myFunction) {
+            myFunction();
+        }
+
+        execute(func_1);
+
+        // Question 2
+        var obj = {
+            name: 'praveen',
+            age: 21,
+            print: function () {
+                console.log("Name : " + this.name + ", Age " + this.age);
+            }
+        }
+
+        console.log("Name : " + obj.name);
+        console.log("Age : " + obj.age);
+
+        obj.print();
+
+        // Question 3
+        var vehicleName = "car";
+
+        function printVehicleName() {
+            console.log(this.vehicleName);
+        }
+
+        var Vehicle = {
+            vehicleName: "van",
+            getVehicleName: printVehicleName
+        }
+
+        Vehicle.getVehicleName();
+        printVehicleName();
+
+        // Question 4
+        function taxCalc(tax) {
+            return function taxAmount(amt) {
+                return (amt * tax) / 100;
+            }
+        }
+
+        var amount = taxCalc(10);
+        console.log(amount(500));
+
+        // Question 5
+        function callGitHub() {
+            $.getJSON("https://api.github.com/users", function (data) {
+                data.forEach(element => {
+                    console.log(element.login + " " + element.id);
+                });
+            });
+        }
+
+        callGitHub();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
